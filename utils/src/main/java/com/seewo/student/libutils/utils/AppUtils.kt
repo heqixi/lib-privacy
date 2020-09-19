@@ -50,5 +50,14 @@ class AppUtils {
                 ""
             }
         }
+
+        fun getAppVersionName(context: Context, packageName: String): String {
+            try {
+                return context.packageManager.getPackageInfo(packageName, 0).versionName
+            } catch (e: PackageManager.NameNotFoundException) {
+                e.printStackTrace()
+            }
+            return ""
+        }
     }
 }
