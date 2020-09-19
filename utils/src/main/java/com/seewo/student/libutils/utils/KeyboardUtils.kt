@@ -2,38 +2,28 @@ package com.seewo.student.libutils.utils
 
 import android.app.Activity
 import android.content.Context
-import android.util.Log
-import android.view.View
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.fragment.app.Fragment
 
-class KeyboardUtils {
+object KeyboardUtils {
 
-    companion object {
+    fun EditText.showKeyboard() {
+        context.getInputMethodManager()?.showSoftInput(this, 0)
+    }
 
-        private const val TAG = "KeyboardUtils"
-
-        fun showKeyboard(context: Context, editText: EditText?) {
-            try {
-                val imm =
-                    context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.showSoftInput(editText, 0)
-            } catch (e: Exception) {
-                Log.e(TAG, e.message)
-            }
+    fun Activity.hideKeyboard() {
+        window.currentFocus?.let {
+            getInputMethodManager()?.hideSoftInputFromWindow(it.windowToken, 0)
         }
+    }
 
-        fun hideSoftKeyBoard(activity: Activity) {
-            try {
-                val imm =
-                    activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                val view: View? = activity.window.currentFocus
-                if (null != view) {
-                    imm.hideSoftInputFromWindow(view.windowToken, 0)
-                }
-            } catch (e: Exception) {
-                Log.e(TAG, e.message)
-            }
-        }
+    fun Fragment.hideKeyboard() {
+        activity?.hideKeyboard()
+    }
+
+    private fun Context?.getInputMethodManager(): InputMethodManager? {
+        return this?.applicationContext?.getSystemService(INPUT_METHOD_SERVICE) as? InputMethodManager
     }
 }

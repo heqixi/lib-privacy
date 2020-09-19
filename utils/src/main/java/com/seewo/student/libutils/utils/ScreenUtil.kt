@@ -1,11 +1,38 @@
 package com.seewo.student.libutils.utils
 
 import android.app.Activity
+import android.content.Context
+import android.content.res.Resources
 import android.graphics.Color
+import android.graphics.Point
 import android.view.View
+import android.view.WindowManager
 
 class ScreenUtil {
     companion object {
+
+        val screenWidth: Int
+            get() = screenOutSize.x
+        val screenHeight: Int
+            get() = screenOutSize.y
+
+        private val screenOutSize = Point()
+
+        fun init(context: Context) {
+            val windowService = context.getSystemService(Context.WINDOW_SERVICE) as? WindowManager
+            windowService?.defaultDisplay?.getRealSize(screenOutSize)
+        }
+
+        fun getStatusBarHeight(): Int {
+            // 不从 context 获取 resources，确保获取的 resources 没有被第三方多屏适配库修改
+            val resources = Resources.getSystem()
+            var statusBarHeight = 0
+            val statusBarHeightResId = resources.getIdentifier("status_bar_height", "dimen", "android")
+            if (statusBarHeightResId > 0) {
+                statusBarHeight = resources.getDimensionPixelSize(statusBarHeightResId)
+            }
+            return statusBarHeight
+        }
 
         fun hideNavigationBar(activity: Activity) {
             hideNavigationBar(activity, Color.TRANSPARENT, true)

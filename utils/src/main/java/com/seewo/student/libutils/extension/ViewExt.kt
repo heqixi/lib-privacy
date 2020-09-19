@@ -7,6 +7,7 @@ import android.os.SystemClock
 import android.view.*
 import android.view.animation.LinearInterpolator
 
+private const val DEFAULT_DEBOUNCE_TIME = 500L
 
 fun View.initAlphaClick(clickFun: (View) -> Unit = {}) {
     var touchDownTime = 0L
@@ -129,4 +130,19 @@ fun View.enterInvisible() {
 
 fun View.enterGone() {
     this.visibility = View.GONE
+}
+
+fun View.setOnDebounceClickListener(
+    debounceTime: Long = DEFAULT_DEBOUNCE_TIME,
+    onDebounceClickListener: ((view: View) -> Unit)
+) {
+    var debounce = 0L
+    setOnClickListener {
+        if (debounce > SystemClock.elapsedRealtime()) {
+            return@setOnClickListener
+        } else {
+            debounce = SystemClock.elapsedRealtime() + debounceTime
+            onDebounceClickListener.invoke(it)
+        }
+    }
 }
