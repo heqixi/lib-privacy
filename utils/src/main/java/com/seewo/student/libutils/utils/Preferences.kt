@@ -1,5 +1,6 @@
 package com.seewo.student.libutils.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 
 class Preferences(context: Context, name: String) {
@@ -32,5 +33,10 @@ class Preferences(context: Context, name: String) {
 
     fun removeValue(key: String) {
         instance.edit().remove(key).apply()
+    }
+
+    @SuppressLint("ApplySharedPref")
+    fun clear() {
+        instance.edit().clear().commit()
     }
 }

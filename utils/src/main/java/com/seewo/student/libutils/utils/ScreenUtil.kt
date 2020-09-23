@@ -2,6 +2,7 @@ package com.seewo.student.libutils.utils
 
 import android.app.Activity
 import android.content.Context
+import android.content.Context.WINDOW_SERVICE
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Point
@@ -11,16 +12,24 @@ import android.view.WindowManager
 class ScreenUtil {
     companion object {
 
-        val screenWidth: Int
-            get() = screenOutSize.x
-        val screenHeight: Int
-            get() = screenOutSize.y
+        private var screenOutSize: Point? = null
 
-        private val screenOutSize = Point()
+        fun getScreenWidth(context: Context): Int {
+            initScreenOutSize(context)
+            return screenOutSize?.x ?: 0
+        }
 
-        fun init(context: Context) {
-            val windowService = context.getSystemService(Context.WINDOW_SERVICE) as? WindowManager
-            windowService?.defaultDisplay?.getRealSize(screenOutSize)
+        fun getScreenHeight(context: Context): Int {
+            initScreenOutSize(context)
+            return screenOutSize?.y ?: 0
+        }
+
+        private fun initScreenOutSize(context: Context) {
+            if (screenOutSize == null) {
+                screenOutSize = Point()
+                val windowService = context.getSystemService(WINDOW_SERVICE) as? WindowManager
+                windowService?.defaultDisplay?.getRealSize(screenOutSize)
+            }
         }
 
         fun getStatusBarHeight(): Int {
