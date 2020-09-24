@@ -64,6 +64,43 @@ fun View.initTouchListener(clickFun: (View) -> Unit) {
     initClickListener(clickFun)
 }
 
+fun View.setClickZoomAnimation(scaleX: Float = 0.96F, scaleY: Float = 0.96F, duration: Long = 100) {
+    setOnTouchListener(object : View.OnTouchListener {
+
+        private val animateInterpolator = LinearInterpolator()
+
+        override fun onTouch(view: View?, event: MotionEvent?): Boolean {
+            if (view == null) {
+                return false
+            }
+            when (event?.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    view.animate()
+                        .scaleX(scaleX)
+                        .scaleY(scaleY)
+                        .setInterpolator(animateInterpolator)
+                        .setDuration(duration)
+                        .start()
+                }
+                MotionEvent.ACTION_UP -> {
+                    view.animate().cancel()
+                    view.scaleX = 1.0F
+                    view.scaleY = 1.0F
+                }
+                MotionEvent.ACTION_CANCEL -> {
+                    view.animate().cancel()
+                    view.scaleX = 1.0F
+                    view.scaleY = 1.0F
+                }
+                else -> {
+                    // NOOP
+                }
+            }
+            return false
+        }
+    })
+}
+
 fun View.initClickListener(clickFun: (View) -> Unit) {
     var lastClickTime = 0L
     setOnClickListener {

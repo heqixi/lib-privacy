@@ -3,7 +3,7 @@ package com.seewo.student.libutils.utils
 import android.annotation.SuppressLint
 import android.content.Context
 
-class Preferences(context: Context, name: String) {
+open class Preferences(context: Context, name: String) {
 
     private val instance = context.getSharedPreferences(name, Context.MODE_PRIVATE)
 
