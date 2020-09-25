@@ -2,6 +2,7 @@ package com.seewo.student.libutils.extension
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Observer
 
 fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observer<T>) {
@@ -70,4 +71,23 @@ private class NoDirtyObserver<T>(
         }
         return -1
     }
+}
+
+fun <T> LiveData<T>.distinctUntilChanged(): LiveData<T> = MediatorLiveData<T>().also { mediator ->
+    mediator.addSource(this, object : Observer<T> {
+
+        private var isInitialized = false
+        private var previousValue: T? = null
+
+        override fun onChanged(newValue: T?) {
+            val wasInitialized = isInitialized
+            if (!isInitialized) {
+                isInitialized = true
+            }
+            if (!wasInitialized || newValue != previousValue) {
+                previousValue = newValue
+                mediator.postValue(newValue)
+            }
+        }
+    })
 }
