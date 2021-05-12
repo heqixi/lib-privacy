@@ -9,7 +9,7 @@ import android.os.Bundle
  * Created by linkaipeng on 2020/8/27.
  *
  */
-class AppUtils {
+object AppUtils {
 
     fun launcherActivityWithPkg(context: Context?, pkgName: String?) {
         if (context == null || pkgName.isNullOrEmpty()) return

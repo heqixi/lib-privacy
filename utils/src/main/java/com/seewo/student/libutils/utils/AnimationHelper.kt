@@ -4,7 +4,7 @@ package com.seewo.student.libutils.utils
  * Created by linkaipeng on 2020/6/12.
  *
  */
-class AnimationHelper {
+object AnimationHelper {
 
     /**
      * scrollY 从 0 到 scrollThreshold 的变化 => alpha 从 0 到 1 变化
