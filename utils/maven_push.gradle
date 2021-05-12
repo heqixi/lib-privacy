@@ -32,7 +32,7 @@ publishing {
 }
 
 artifactory {
-    contextUrl = "https://artifactory.gz.cvte.cn:443/artifactory"
+    contextUrl = "https://artifactory.gz.cvte.cn/artifactory"
     publish {
         repository {
             repoKey = Boolean.valueOf(System.getProperty("snapshot")) ? "SR_maven_snapshots_local" : "SR_maven_releases_local"
