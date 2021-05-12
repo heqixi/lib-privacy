@@ -183,3 +183,8 @@ fun View.setOnDebounceClickListener(
         }
     }
 }
+
+fun View.centerInScreen(locationArray: IntArray = IntArray(2)): Point {
+    this.getLocationOnScreen(locationArray)
+    return Point(locationArray[0] + this.width / 2, locationArray[1] + this.height / 2)
+}

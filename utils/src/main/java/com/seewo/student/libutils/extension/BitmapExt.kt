@@ -2,11 +2,13 @@ package com.seewo.student.libutils.extension
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.renderscript.Allocation
 import android.renderscript.Element
 import android.renderscript.RenderScript
 import android.renderscript.ScriptIntrinsicBlur
 import android.util.Log
+import androidx.core.content.ContextCompat
 import com.seewo.student.libutils.utils.BitmapUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -27,10 +29,7 @@ suspend fun Bitmap.saveToFile(
     compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG
 ) = withContext(Dispatchers.IO) {
     val imageFile = File(filePath)
-    val parentDir = imageFile.parentFile
-    if (!parentDir.exists()) {
-        parentDir.mkdir()
-    }
+    imageFile.ensureParentDirExist()
 
     var fos: FileOutputStream? = null
     try {
@@ -38,7 +37,7 @@ suspend fun Bitmap.saveToFile(
         compress(compressFormat, quality, fos)
         fos.close()
     } catch (e: IOException) {
-        Log.e("saveToFile", e.message)
+        Log.e("saveToFile", e.message ?: "Bitmap saveToFile io error")
         if (fos != null) {
             try {
                 fos.close()
@@ -83,4 +82,13 @@ suspend fun Bitmap.blur(context: Context): Bitmap = withContext(Dispatchers.IO) 
     // 将数据填充到Allocation中
     tmpOut.copyTo(outputBitmap)
     outputBitmap
+}
+
+fun getBitmapFromVectorDrawable(context: Context, drawableId: Int, width: Int, height: Int): Bitmap {
+    val drawable = ContextCompat.getDrawable(context, drawableId)
+    val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(bitmap)
+    drawable?.setBounds(0, 0, canvas.width, canvas.height)
+    drawable?.draw(canvas)
+    return bitmap
 }

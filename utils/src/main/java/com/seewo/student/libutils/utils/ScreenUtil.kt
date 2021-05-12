@@ -9,90 +9,98 @@ import android.graphics.Point
 import android.view.View
 import android.view.WindowManager
 
-class ScreenUtil {
-    companion object {
+object ScreenUtil {
 
-        private var screenOutSize: Point? = null
+    private var screenOutSize: Point? = null
 
-        fun getScreenWidth(context: Context): Int {
-            initScreenOutSize(context)
-            return screenOutSize?.x ?: 0
+    fun getScreenWidth(context: Context): Int {
+        initScreenOutSize(context)
+        return screenOutSize?.x ?: 0
+    }
+
+    fun getScreenHeight(context: Context): Int {
+        initScreenOutSize(context)
+        return screenOutSize?.y ?: 0
+    }
+
+    private fun initScreenOutSize(context: Context) {
+        if (screenOutSize == null) {
+            screenOutSize = Point()
+            val windowService = context.getSystemService(WINDOW_SERVICE) as? WindowManager
+            windowService?.defaultDisplay?.getRealSize(screenOutSize)
         }
+    }
 
-        fun getScreenHeight(context: Context): Int {
-            initScreenOutSize(context)
-            return screenOutSize?.y ?: 0
+    fun getStatusBarHeight(): Int {
+        // 不从 context 获取 resources，确保获取的 resources 没有被第三方多屏适配库修改
+        val resources = Resources.getSystem()
+        var statusBarHeight = 0
+        val statusBarHeightResId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (statusBarHeightResId > 0) {
+            statusBarHeight = resources.getDimensionPixelSize(statusBarHeightResId)
         }
+        return statusBarHeight
+    }
 
-        private fun initScreenOutSize(context: Context) {
-            if (screenOutSize == null) {
-                screenOutSize = Point()
-                val windowService = context.getSystemService(WINDOW_SERVICE) as? WindowManager
-                windowService?.defaultDisplay?.getRealSize(screenOutSize)
-            }
-        }
+    fun enterImmersive(activity: Activity) {
+        activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+        activity.window.statusBarColor = Color.TRANSPARENT
+    }
 
-        fun getStatusBarHeight(): Int {
-            // 不从 context 获取 resources，确保获取的 resources 没有被第三方多屏适配库修改
-            val resources = Resources.getSystem()
-            var statusBarHeight = 0
-            val statusBarHeightResId = resources.getIdentifier("status_bar_height", "dimen", "android")
-            if (statusBarHeightResId > 0) {
-                statusBarHeight = resources.getDimensionPixelSize(statusBarHeightResId)
-            }
-            return statusBarHeight
-        }
+    fun exitImmersive(activity: Activity) {
+        activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+        activity.window.statusBarColor = Color.TRANSPARENT
+    }
 
-        fun enterImmersive(activity: Activity) {
-            activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or
-                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
-                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            activity.window.statusBarColor = Color.TRANSPARENT
-        }
+    fun hideStatusBar(activity: Activity) {
+        activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        activity.window.statusBarColor = Color.TRANSPARENT
+    }
 
-        fun exitImmersive(activity: Activity) {
-            activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or
-                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-            activity.window.statusBarColor = Color.TRANSPARENT
-        }
+    fun hideNavigationBar(activity: Activity) {
+        hideNavigationBar(activity, Color.TRANSPARENT, true)
+    }
 
-        fun hideStatusBar(activity: Activity) {
-            activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-            activity.window.statusBarColor = Color.TRANSPARENT
+    /**
+     * 隐藏状态栏
+     */
+    private fun hideNavigationBar(
+        activity: Activity,
+        navigationBarColor: Int,
+        showStatusBar: Boolean
+    ) {
+        setFullScreen(activity, navigationBarColor, showStatusBar)
+        val view = activity.window.decorView
+        view.setOnSystemUiVisibilityChangeListener {
+            setFullScreen(
+                activity,
+                navigationBarColor,
+                showStatusBar
+            )
         }
+    }
 
-        fun hideNavigationBar(activity: Activity) {
-            hideNavigationBar(activity, Color.TRANSPARENT, true)
+    private fun setFullScreen(activity: Activity, color: Int, showStatusBar: Boolean) {
+        val decorView = activity.window.decorView
+        var option = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
+        if (!showStatusBar) {
+            option = option or View.SYSTEM_UI_FLAG_FULLSCREEN
         }
-
-        /**
-         * 隐藏状态栏
-         */
-        private fun hideNavigationBar(activity: Activity, navigationBarColor: Int, showStatusBar: Boolean) {
-            setFullScreen(activity, navigationBarColor, showStatusBar)
-            val view = activity.window.decorView
-            view.setOnSystemUiVisibilityChangeListener { setFullScreen(activity, navigationBarColor, showStatusBar) }
-        }
-
-        private fun setFullScreen(activity: Activity, color: Int, showStatusBar: Boolean) {
-            val decorView = activity.window.decorView
-            var option = (View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE)
-            if (!showStatusBar) {
-                option = option or View.SYSTEM_UI_FLAG_FULLSCREEN
-            }
-            decorView.systemUiVisibility = option
-            activity.window.statusBarColor = Color.TRANSPARENT
-            activity.window.navigationBarColor = color
-        }
+        decorView.systemUiVisibility = option
+        activity.window.statusBarColor = Color.TRANSPARENT
+        activity.window.navigationBarColor = color
     }
 }

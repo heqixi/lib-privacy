@@ -11,6 +11,12 @@ val Float.dp: Float
 val Int.dp: Int
     get() = this.toFloat().dp.toInt()
 
+val Float.sp: Float
+    get() = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, this, getDisplayMetrics())
+
+val Int.sp: Int
+    get() = this.toFloat().sp.toInt()
+
 /**
  * 如果使用了 AutoSize 则使用 AutoSize 转化过的 resources，否则使用系统默认 resources
  */
