@@ -2,9 +2,12 @@ package com.seewo.student.libutils.utils
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Point
 import android.graphics.Rect
+import android.os.Build
 import android.util.Log
 import android.view.Surface
+import android.view.WindowManager
 import com.seewo.student.libutils.reflect.Reflect
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -32,8 +35,15 @@ object ScreenShotHelper {
     suspend fun getScreenShot(context: Context): Bitmap? = withContext(Dispatchers.IO) {
         enterScreenShotMode()
         delay(100)
-        val displayMetrics = context.resources.displayMetrics
-        val screenBitmap = invokeScreenshotP(displayMetrics.widthPixels, displayMetrics.heightPixels)
+
+        val display = (context.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
+        val screenOutSize = Point()
+        display.getRealSize(screenOutSize)
+        val screenBitmap = if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+            invokeScreenshotP(screenOutSize.x, screenOutSize.y)
+        } else {
+            invokeScreenShotX(screenOutSize.x, screenOutSize.y)
+        }
         SystemPropertyInternal.set(FLAG_SHOT_TYPE, "2")
         screenBitmap
     }
@@ -61,6 +71,19 @@ object ScreenShotHelper {
                     screenRect, width, height, MIN_LAYER, MAX_LAYER, false, Surface.ROTATION_0
                 )
                 .get() as Bitmap
+        } catch (e: Exception) {
+            Log.e("ScreenShotHelper", e.message)
+            null
+        }
+    }
+
+    private fun invokeScreenShotX(width: Int, height: Int): Bitmap? {
+        val screenRect = Rect(0, 0, width, height)
+        return try {
+            val result = Reflect.on("android.view.SurfaceControl")
+                .call("screenshot", screenRect, width, height, Surface.ROTATION_0)
+                .get() as Bitmap
+            result
         } catch (e: Exception) {
             Log.e("ScreenShotHelper", e.message)
             null

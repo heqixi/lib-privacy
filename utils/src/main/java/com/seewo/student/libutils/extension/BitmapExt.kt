@@ -3,6 +3,7 @@ package com.seewo.student.libutils.extension
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.os.Build
 import android.renderscript.Allocation
 import android.renderscript.Element
 import android.renderscript.RenderScript
@@ -12,6 +13,7 @@ import androidx.core.content.ContextCompat
 import com.seewo.student.libutils.utils.BitmapUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -29,7 +31,10 @@ suspend fun Bitmap.saveToFile(
     compressFormat: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG
 ) = withContext(Dispatchers.IO) {
     val imageFile = File(filePath)
-    imageFile.ensureParentDirExist()
+    val parentDir = imageFile.parentFile
+    if (!parentDir.exists()) {
+        parentDir.mkdir()
+    }
 
     var fos: FileOutputStream? = null
     try {
@@ -37,7 +42,7 @@ suspend fun Bitmap.saveToFile(
         compress(compressFormat, quality, fos)
         fos.close()
     } catch (e: IOException) {
-        Log.e("saveToFile", e.message ?: "Bitmap saveToFile io error")
+        Log.e("saveToFile", e.message)
         if (fos != null) {
             try {
                 fos.close()
@@ -52,13 +57,24 @@ suspend fun Bitmap.compress(quality: Int = 80) = withContext(Dispatchers.IO) {
     BitmapUtils.compressBitmap(this@compress, quality)
 }
 
+suspend fun Bitmap.toByteArray(): ByteArray = withContext(Dispatchers.IO) {
+    val stream = ByteArrayOutputStream()
+    this@toByteArray.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+    stream.toByteArray()
+}
+
 suspend fun Bitmap.blur(context: Context): Bitmap = withContext(Dispatchers.IO) {
+    val translatedBitmap = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && this@blur.config == Bitmap.Config.HARDWARE) {
+        this@blur.copy(Bitmap.Config.ARGB_8888, false)
+    } else {
+        this@blur
+    }
     // 计算图片缩小后的长宽
-    val width = (this@blur.width * BITMAP_SCALE).roundToInt()
-    val height = (this@blur.height * BITMAP_SCALE).roundToInt()
+    val width = (translatedBitmap.width * BITMAP_SCALE).roundToInt()
+    val height = (translatedBitmap.height * BITMAP_SCALE).roundToInt()
 
     // 将缩小后的图片做为预渲染的图片。
-    val inputBitmap: Bitmap = Bitmap.createScaledBitmap(this@blur, width, height, false)
+    val inputBitmap: Bitmap = Bitmap.createScaledBitmap(translatedBitmap, width, height, false)
     // 创建一张渲染后的输出图片。
     val outputBitmap: Bitmap = Bitmap.createBitmap(inputBitmap)
 
