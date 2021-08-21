@@ -1,7 +1,12 @@
 Change Log
 ==========
 
-Version 1.0.7 *(2021-08-13)*
+Version 1.0.9 *(2021-08-21)*
+----------------------------
+
+* Update: 更新ScreenShotHelper，适配Android 8.0以上版本截图
+
+Version 1.0.8 *(2021-08-13)*
 ----------------------------
 
 * New: 增加工具类DeviceSNHelper，获取板卡和整机 SN 号
