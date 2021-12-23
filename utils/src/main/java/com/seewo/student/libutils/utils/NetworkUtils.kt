@@ -37,7 +37,6 @@ object NetworkUtils {
                     buf.deleteCharAt(buf.length - 1)
                 }
                 val mac = buf.toString()
-                Log.d(TAG, "interfaceName=" + iF.name + ", mac=" + mac)
                 if (iF.name.equals("wlan0", ignoreCase = true)) {
                     macSerial = mac
                     break
