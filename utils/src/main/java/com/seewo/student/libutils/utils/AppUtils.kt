@@ -3,7 +3,9 @@ package com.seewo.student.libutils.utils
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 
 /**
  * Created by linkaipeng on 2020/8/27.
@@ -61,5 +63,15 @@ object AppUtils {
             e.printStackTrace()
         }
         return ""
+    }
+
+    @RequiresApi(Build.VERSION_CODES.P)
+    fun getAppVersionCode(context: Context, packageName: String): Long {
+        try {
+            return context.packageManager.getPackageInfo(packageName, 0).longVersionCode
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
+        return 0L
     }
 }
