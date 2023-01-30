@@ -5,7 +5,7 @@ import android.content.Context
 
 open class Preferences(context: Context, name: String) {
 
-    private val instance = context.getSharedPreferences(name, Context.MODE_PRIVATE)
+    val instance = context.getSharedPreferences(name, Context.MODE_PRIVATE)
 
     fun setValue(key: String, value: Int) {
         instance.edit().putInt(key, value).apply()
