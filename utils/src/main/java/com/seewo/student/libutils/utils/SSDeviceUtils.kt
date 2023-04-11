@@ -21,6 +21,6 @@ object SSDeviceUtils {
     }
 
     fun isV1(): Boolean {
-        return Build.MODEL.startsWith(prefix = "XPV11A", ignoreCase = true)
+        return Build.MODEL.startsWith(prefix = "XPV11", ignoreCase = true)
     }
 }
