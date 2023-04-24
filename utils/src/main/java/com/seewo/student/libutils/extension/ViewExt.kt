@@ -151,7 +151,9 @@ fun View.getActivity(): Activity? {
 }
 
 fun View.getViewCapture(): Bitmap {
-    val bitmap = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888)
+    val bitmap = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888).apply {
+        density = resources.displayMetrics.densityDpi
+    }
     val canvas = Canvas(bitmap)
     this.draw(canvas)
     return bitmap
