@@ -23,4 +23,8 @@ object SSDeviceUtils {
     fun isV1(): Boolean {
         return Build.MODEL.startsWith(prefix = "XPV11", ignoreCase = true)
     }
+
+    fun isV1Pro(): Boolean {
+        return isV1() && SystemPropertyInternal.get("ro.seewo.sales.model", "").equals("pro", ignoreCase = true)
+    }
 }

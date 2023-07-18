@@ -1,5 +1,9 @@
 Change Log
 ==========
+Version 1.0.17 *(2023-07-18)*
+----------------------------
+* New: 增加 V1 Pro 机型判断
+*
 Version 1.0.16 *(2023-04-24)*
 ----------------------------
 * New: getViewCapture bitmap 增加 density 设置
