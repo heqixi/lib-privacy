@@ -1,6 +1,9 @@
 package com.seewo.student.libutils.utils
 
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.BatteryManager
 import android.provider.Settings
 
 /**
@@ -68,6 +71,13 @@ object PowerSaveModeHelper {
             powerSaveMode and MODE_SWITCH_ON.inv()
         }
 
+        // 处理省电模式当前充电状态
+        powerSaveMode = if (isBatteryCharging(context)) {
+            powerSaveMode or MODE_POWER_PLUG_IN
+        } else {
+            powerSaveMode and MODE_POWER_PLUG_IN.inv()
+        }
+
         val isPowerSaveModeActive = when {
             // 强制激活省电模式
             (powerSaveMode and MODE_FORCE_ACTIVE) != 0 -> true
@@ -84,5 +94,13 @@ object PowerSaveModeHelper {
         }
 
         Settings.Global.putInt(context.contentResolver, KEY_POWER_SAVE_MODE, powerSaveMode)
+    }
+
+    fun isBatteryCharging(context: Context): Boolean {
+        val batteryStatus: Intent? = IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { ifilter ->
+            context.registerReceiver(null, ifilter)
+        }
+        val status: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_STATUS, -1) ?: -1
+        return status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL
     }
 }
