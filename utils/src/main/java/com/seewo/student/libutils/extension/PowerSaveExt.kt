@@ -9,7 +9,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.seewo.student.libutils.utils.PowerSaveModeHelper
 
-fun Context?.observePowerSaveModeChange(owner: LifecycleOwner, onChangedCallBack: (isPowerSaveModeOpen: Boolean) -> Unit) {
+fun Context?.observePowerSaveModeOpen(owner: LifecycleOwner, onChangedCallBack: (isPowerSaveModeOpen: Boolean) -> Unit) {
     if (this == null || owner.lifecycle.currentState == Lifecycle.State.DESTROYED) {
         return
     }
@@ -18,7 +18,7 @@ fun Context?.observePowerSaveModeChange(owner: LifecycleOwner, onChangedCallBack
     val contentObserver = object : ContentObserver(Handler(Looper.getMainLooper())) {
         override fun onChange(selfChange: Boolean) {
             super.onChange(selfChange)
-            val isCurrentActive = PowerSaveModeHelper.getPowerSaveModeSwitchOn(this@observePowerSaveModeChange)
+            val isCurrentActive = PowerSaveModeHelper.getPowerSaveModeSwitchOn(this@observePowerSaveModeOpen)
             if (isPowerSaveModeActive != isCurrentActive) {
                 onChangedCallBack.invoke(isCurrentActive)
                 isPowerSaveModeActive = isCurrentActive
