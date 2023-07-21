@@ -9,19 +9,34 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.seewo.student.libutils.utils.PowerSaveModeHelper
 
+fun Context?.observePowerSaveModeChange(owner: LifecycleOwner, onChangedCallBack: () -> Unit) {
+    if (this == null || owner.lifecycle.currentState == Lifecycle.State.DESTROYED) {
+        return
+    }
+
+    val contentObserver = object : ContentObserver(Handler(Looper.getMainLooper())) {
+        override fun onChange(selfChange: Boolean) {
+            super.onChange(selfChange)
+            onChangedCallBack.invoke()
+        }
+    }
+    contentResolver.registerContentObserver(PowerSaveModeHelper.settingsUriOfPowerSaveMode, true, contentObserver)
+    owner.lifecycle.addObserver(LifecycleInterObserver(this, owner, contentObserver))
+}
+
 fun Context?.observePowerSaveModeOpen(owner: LifecycleOwner, onChangedCallBack: (isPowerSaveModeOpen: Boolean) -> Unit) {
     if (this == null || owner.lifecycle.currentState == Lifecycle.State.DESTROYED) {
         return
     }
 
-    var isPowerSaveModeActive = PowerSaveModeHelper.getPowerSaveModeSwitchOn(this)
+    var isPowerSaveModeOpen = PowerSaveModeHelper.getPowerSaveModeSwitchOn(this)
     val contentObserver = object : ContentObserver(Handler(Looper.getMainLooper())) {
         override fun onChange(selfChange: Boolean) {
             super.onChange(selfChange)
             val isCurrentActive = PowerSaveModeHelper.getPowerSaveModeSwitchOn(this@observePowerSaveModeOpen)
-            if (isPowerSaveModeActive != isCurrentActive) {
+            if (isPowerSaveModeOpen != isCurrentActive) {
                 onChangedCallBack.invoke(isCurrentActive)
-                isPowerSaveModeActive = isCurrentActive
+                isPowerSaveModeOpen = isCurrentActive
             }
         }
     }
