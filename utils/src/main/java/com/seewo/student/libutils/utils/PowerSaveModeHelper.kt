@@ -31,6 +31,8 @@ object PowerSaveModeHelper {
 
     private const val KEY_POWER_SAVE_MODE = "global_ss_power_save_mode"
 
+    val settingsUriOfPowerSaveMode = Settings.Global.getUriFor(KEY_POWER_SAVE_MODE)
+
     // 处理 V1 机型 强制激活省电模式
     fun isPowerSaveForceActive(context: Context): Boolean {
         if (SSDeviceUtils.isV1() || SSDeviceUtils.isV1Pro()) {
