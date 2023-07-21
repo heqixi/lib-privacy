@@ -3,6 +3,7 @@ package com.seewo.student.libutils.utils
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.net.Uri
 import android.os.BatteryManager
 import android.provider.Settings
 
@@ -31,7 +32,7 @@ object PowerSaveModeHelper {
 
     private const val KEY_POWER_SAVE_MODE = "global_ss_power_save_mode"
 
-    val settingsUriOfPowerSaveMode = Settings.Global.getUriFor(KEY_POWER_SAVE_MODE)
+    val settingsUriOfPowerSaveMode: Uri = Settings.Global.getUriFor(KEY_POWER_SAVE_MODE)
 
     // 处理 V1 机型 强制激活省电模式
     fun isPowerSaveForceActive(context: Context): Boolean {
