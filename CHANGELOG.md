@@ -1,6 +1,6 @@
 Change Log
 ==========
-Version 1.0.22 *(2023-07-24)*
+Version 1.0.23 *(2023-07-25)*
 ----------------------------
 * New: 增加 observePowerSaveModeActiveForever 方法
 *
