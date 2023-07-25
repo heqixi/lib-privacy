@@ -64,6 +64,23 @@ fun Context?.observePowerSaveModeActive(owner: LifecycleOwner, onChangedCallBack
     owner.lifecycle.addObserver(LifecycleInterObserver(this, owner, contentObserver))
 }
 
+fun Context?.observePowerSaveModeActiveForever(onChangedCallBack: (isPowerSaveModeActive: Boolean) -> Unit) {
+    if (this == null) {
+        return
+    }
+    var isPowerSaveModeActive = PowerSaveModeHelper.isPowerSaveModeActive(this)
+    val contentObserver = object : ContentObserver(Handler(Looper.getMainLooper())) {
+        override fun onChange(selfChange: Boolean) {
+            super.onChange(selfChange)
+            val isCurrentActive = PowerSaveModeHelper.isPowerSaveModeActive(this@observePowerSaveModeActiveForever)
+            if (isPowerSaveModeActive != isCurrentActive) {
+                onChangedCallBack.invoke(isCurrentActive)
+                isPowerSaveModeActive = isCurrentActive
+            }
+        }
+    }
+    contentResolver.registerContentObserver(PowerSaveModeHelper.settingsUriOfPowerSaveMode, true, contentObserver)
+}
 
 internal class LifecycleInterObserver(
     val context: Context,

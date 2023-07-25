@@ -2,6 +2,10 @@ Change Log
 ==========
 Version 1.0.22 *(2023-07-24)*
 ----------------------------
+* New: 增加 observePowerSaveModeActiveForever 方法
+*
+Version 1.0.22 *(2023-07-24)*
+----------------------------
 * New: 增加 w3 Pro 机型判断
 *
 Version 1.0.21 *(2023-07-22)*
