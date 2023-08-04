@@ -91,9 +91,9 @@ object PowerSaveModeHelper {
 
         // 处理省电模式激活状态
         powerSaveMode = if (isPowerSaveModeActive) {
-            powerSaveMode or MODE_SWITCH_ON
+            powerSaveMode or MODE_ACTIVE
         } else {
-            powerSaveMode and MODE_SWITCH_ON.inv()
+            powerSaveMode and MODE_ACTIVE.inv()
         }
 
         Settings.Global.putInt(context.contentResolver, KEY_POWER_SAVE_MODE, powerSaveMode)

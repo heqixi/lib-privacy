@@ -1,5 +1,9 @@
 Change Log
 ==========
+Version 1.0.24 *(2023-08-04)*
+----------------------------
+* New: 优化 省电模式 激活状态
+*
 Version 1.0.23 *(2023-07-25)*
 ----------------------------
 * New: 增加 observePowerSaveModeActiveForever 方法
