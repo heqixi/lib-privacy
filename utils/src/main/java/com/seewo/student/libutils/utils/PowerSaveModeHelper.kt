@@ -31,6 +31,7 @@ object PowerSaveModeHelper {
     private const val MODE_FORCE_ACTIVE = 0x80
 
     private const val KEY_POWER_SAVE_MODE = "global_ss_power_save_mode"
+    private const val KEY_PROPERTY_SAVE_MODE = "persist.sys.seewo.powersave.mode"
 
     val settingsUriOfPowerSaveMode: Uri = Settings.Global.getUriFor(KEY_POWER_SAVE_MODE)
 
@@ -97,6 +98,7 @@ object PowerSaveModeHelper {
         }
 
         Settings.Global.putInt(context.contentResolver, KEY_POWER_SAVE_MODE, powerSaveMode)
+        SystemPropertyInternal.set(KEY_PROPERTY_SAVE_MODE, powerSaveMode.toString())
     }
 
     fun isBatteryCharging(context: Context): Boolean {
