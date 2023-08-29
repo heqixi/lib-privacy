@@ -1,5 +1,10 @@
 Change Log
 ==========
+Version 1.0.26 *(2023-08-29)*
+----------------------------
+* Feature:
+- 1.修复多指操作设置了 initPrivacyAlphaClick 方法的按钮导致 resetCancelNextUpFlag 空指针问题；
+
 Version 1.0.25 *(2023-08-07)*
 ----------------------------
 * New: 设置 省电模式 时，需要同步设置 Property 值

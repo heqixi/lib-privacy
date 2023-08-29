@@ -19,7 +19,7 @@ fun View.initAlphaClick(clickFun: (View) -> Unit = {}) {
             }
             MotionEvent.ACTION_UP -> {
                 if (SystemClock.elapsedRealtime() - touchDownTime < 500) {
-                    v.performClick()
+                    v.post { v.performClick() }
                 }
                 v.alpha = 1F
             }
