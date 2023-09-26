@@ -16,20 +16,57 @@ object SSDeviceUtils {
         return Build.MODEL.startsWith(prefix = "DT15PA", ignoreCase = true)
     }
 
+    @Deprecated("使用 isW3Series() 替换")
     fun isW3(): Boolean {
+        return isW3Series()
+    }
+
+    /**
+     * W3 系列，包含 W3、W3Pro
+     */
+    fun isW3Series(): Boolean {
         return Build.MODEL.startsWith(prefix = "XTW31", ignoreCase = true)
     }
 
     fun isW3Pro(): Boolean {
-        return isW3() && isProSalasModel()
+        return isW3Series() && isProSalasModel()
     }
 
+    fun isW3Normal(): Boolean {
+        return isW3Series() && !isProSalasModel()
+    }
+
+    @Deprecated("使用 isV1Series() 替换")
     fun isV1(): Boolean {
+        return isV1Series()
+    }
+
+    /**
+     * V1 系列，包含 V1、V1Pro
+     */
+    fun isV1Series(): Boolean {
         return Build.MODEL.startsWith(prefix = "XPV11", ignoreCase = true)
     }
 
+    /**
+     * V1 Pro 版
+     */
     fun isV1Pro(): Boolean {
-        return isV1() && isProSalasModel()
+        return isV1Series() && isProSalasModel()
+    }
+
+    /**+
+     * V1 标准版
+     */
+    fun isV1Normal(): Boolean {
+        return isV1Series() && !isProSalasModel()
+    }
+
+    /**
+     * T1 系列
+     */
+    fun isT1Series(): Boolean {
+        return Build.MODEL.startsWith(prefix = "XPT11", ignoreCase = true)
     }
 
     private fun isProSalasModel(): Boolean {

@@ -1,5 +1,13 @@
 Change Log
 ==========
+Version 1.0.27 *(2023-09-26)*
+----------------------------
+* Feature:
+- 1. Deprecated isV1() 和 isW3() 方法，使用 isV1Series() 和 isW3Series() 方法代替；
+- 2. 新增 isW3Normal()、isV1Normal() 方法，对应 W3 和 V1 的标准版；
+- 3. 新增 isT1Series()，对应 T1 系列；
+
+
 Version 1.0.26 *(2023-08-29)*
 ----------------------------
 * Feature:
