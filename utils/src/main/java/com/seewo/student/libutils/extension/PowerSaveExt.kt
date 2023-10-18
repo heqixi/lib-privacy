@@ -8,8 +8,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.seewo.student.libutils.utils.PowerSaveModeHelper
+import com.seewo.student.libutils.utils.SSDeviceUtils
 
 fun Context?.observePowerSaveModeChange(owner: LifecycleOwner, onChangedCallBack: () -> Unit) {
+    if (PowerSaveModeHelper.isForceInactivatedOfHistoryDevice()) {
+        return
+    }
     if (this == null || owner.lifecycle.currentState == Lifecycle.State.DESTROYED) {
         return
     }
@@ -25,6 +29,9 @@ fun Context?.observePowerSaveModeChange(owner: LifecycleOwner, onChangedCallBack
 }
 
 fun Context?.observePowerSaveModeOpen(owner: LifecycleOwner, onChangedCallBack: (isPowerSaveModeOpen: Boolean) -> Unit) {
+    if (PowerSaveModeHelper.isForceInactivatedOfHistoryDevice()) {
+        return
+    }
     if (this == null || owner.lifecycle.currentState == Lifecycle.State.DESTROYED) {
         return
     }
@@ -45,6 +52,9 @@ fun Context?.observePowerSaveModeOpen(owner: LifecycleOwner, onChangedCallBack: 
 }
 
 fun Context?.observePowerSaveModeActive(owner: LifecycleOwner, onChangedCallBack: (isPowerSaveModeActive: Boolean) -> Unit) {
+    if (PowerSaveModeHelper.isForceInactivatedOfHistoryDevice()) {
+        return
+    }
     if (this == null || owner.lifecycle.currentState == Lifecycle.State.DESTROYED) {
         return
     }
@@ -65,6 +75,9 @@ fun Context?.observePowerSaveModeActive(owner: LifecycleOwner, onChangedCallBack
 }
 
 fun Context?.observePowerSaveModeActiveForever(onChangedCallBack: (isPowerSaveModeActive: Boolean) -> Unit) {
+    if (PowerSaveModeHelper.isForceInactivatedOfHistoryDevice()) {
+        return
+    }
     if (this == null) {
         return
     }

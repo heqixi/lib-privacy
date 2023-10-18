@@ -37,7 +37,10 @@ object PowerSaveModeHelper {
 
     // 处理 V1 机型 强制激活省电模式
     fun isPowerSaveForceActive(context: Context): Boolean {
-        if (SSDeviceUtils.isV1Series() || SSDeviceUtils.isV1Pro()) {
+        if (isForceInactivatedOfHistoryDevice()) {
+            return false
+        }
+        if (SSDeviceUtils.isV1Series() || SSDeviceUtils.isT1Series()) {
             return true
         }
 
@@ -49,6 +52,10 @@ object PowerSaveModeHelper {
      * bit6 or bit7 为1时，表示省电模式为激活状态
      */
     fun isPowerSaveModeActive(context: Context): Boolean {
+        if (isForceInactivatedOfHistoryDevice()) {
+            return false
+        }
+
         if (isPowerSaveForceActive(context)) {
             return true
         }
@@ -107,5 +114,9 @@ object PowerSaveModeHelper {
         }
         val status: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_STATUS, -1) ?: -1
         return status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL
+    }
+
+    fun isForceInactivatedOfHistoryDevice(): Boolean {
+        return SSDeviceUtils.isW1() || SSDeviceUtils.isW2() || SSDeviceUtils.isW3Normal()
     }
 }
