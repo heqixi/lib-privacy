@@ -44,8 +44,13 @@ object PowerSaveModeHelper {
             return true
         }
 
-        val powerSaveMode = Settings.Global.getInt(context.contentResolver, KEY_POWER_SAVE_MODE, 0)
-        return (powerSaveMode and MODE_FORCE_ACTIVE) != 0
+        return try {
+            val powerSaveMode = Settings.Global.getInt(context.contentResolver, KEY_POWER_SAVE_MODE, 0)
+            (powerSaveMode and MODE_FORCE_ACTIVE) != 0
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
+        }
     }
 
     /**
@@ -60,20 +65,35 @@ object PowerSaveModeHelper {
             return true
         }
 
-        val powerSaveMode = Settings.Global.getInt(context.contentResolver, KEY_POWER_SAVE_MODE, 0)
-        return (powerSaveMode and MODE_ACTIVE) != 0 || (powerSaveMode and MODE_FORCE_ACTIVE) != 0
+        return try {
+            val powerSaveMode = Settings.Global.getInt(context.contentResolver, KEY_POWER_SAVE_MODE, 0)
+            (powerSaveMode and MODE_ACTIVE) != 0 || (powerSaveMode and MODE_FORCE_ACTIVE) != 0
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
+        }
     }
 
     /**
      * bit1 为1时，表示省电模式开关为开
      */
     fun getPowerSaveModeSwitchOn(context: Context): Boolean {
-        val powerSaveMode = Settings.Global.getInt(context.contentResolver, KEY_POWER_SAVE_MODE, 0)
-        return (powerSaveMode and MODE_SWITCH_ON) != 0
+        return try {
+            val powerSaveMode = Settings.Global.getInt(context.contentResolver, KEY_POWER_SAVE_MODE, 0)
+            (powerSaveMode and MODE_SWITCH_ON) != 0
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
+        }
     }
 
     fun setPowerSaveModeSwitchOn(context: Context, isSwitchOn: Boolean) {
-        var powerSaveMode = Settings.Global.getInt(context.contentResolver, KEY_POWER_SAVE_MODE, 0)
+        var powerSaveMode = try {
+            Settings.Global.getInt(context.contentResolver, KEY_POWER_SAVE_MODE, 0)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            0
+        }
 
         // 处理省电模式开关状态
         powerSaveMode = if (isSwitchOn) {
@@ -104,16 +124,25 @@ object PowerSaveModeHelper {
             powerSaveMode and MODE_ACTIVE.inv()
         }
 
-        Settings.Global.putInt(context.contentResolver, KEY_POWER_SAVE_MODE, powerSaveMode)
-        SystemPropertyInternal.set(KEY_PROPERTY_SAVE_MODE, powerSaveMode.toString())
+        try {
+            Settings.Global.putInt(context.contentResolver, KEY_POWER_SAVE_MODE, powerSaveMode)
+            SystemPropertyInternal.set(KEY_PROPERTY_SAVE_MODE, powerSaveMode.toString())
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     fun isBatteryCharging(context: Context): Boolean {
-        val batteryStatus: Intent? = IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { ifilter ->
-            context.registerReceiver(null, ifilter)
+        return try {
+            val batteryStatus: Intent? = IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { ifilter ->
+                context.registerReceiver(null, ifilter)
+            }
+            val status: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_STATUS, -1) ?: -1
+            status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
         }
-        val status: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_STATUS, -1) ?: -1
-        return status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL
     }
 
     fun isForceInactivatedOfHistoryDevice(): Boolean {
