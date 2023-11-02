@@ -69,6 +69,21 @@ object SSDeviceUtils {
         return Build.MODEL.startsWith(prefix = "XPT11", ignoreCase = true)
     }
 
+    /**
+     * Ace1 系列，包含 Ace1、Ace1Pro
+     */
+    fun isAce1Series(): Boolean {
+        return Build.MODEL.startsWith(prefix = "XTA11", ignoreCase = true)
+    }
+
+    fun isAce1Pro(): Boolean {
+        return isAce1Series() && isProSalasModel()
+    }
+
+    fun isAce1Normal(): Boolean {
+        return isAce1Series() && !isProSalasModel()
+    }
+
     private fun isProSalasModel(): Boolean {
         return SystemPropertyInternal.get("ro.seewo.sales.model", "").equals("pro", ignoreCase = true)
     }
