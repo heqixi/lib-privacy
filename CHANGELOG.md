@@ -1,6 +1,6 @@
 Change Log
 ==========
-Version 1.0.29 *(2023-10-18)*
+Version 1.0.30 *(2023-11-02)*
 ----------------------------
 * Feature:
 - 1. 增加 Ace1 机型判断方法： isAce1Series()、isAce1Normal()、isAce1Pro()
