@@ -85,6 +85,20 @@ object SSDeviceUtils {
     }
 
     private fun isProSalasModel(): Boolean {
-        return SystemPropertyInternal.get("ro.seewo.sales.model", "").equals("pro", ignoreCase = true)
+        return getSalesModel().equals("pro", ignoreCase = true)
+    }
+
+    fun getSalesModel(): String {
+        var salesModel = SystemPropertyInternal.get("ro.seewo.sales.model", "").ifEmpty {
+            SystemPropertyInternal.get("ro.seewo.software.type", "normal")
+        }
+        if (salesModel == "none") {
+            salesModel = "normal"
+        }
+        return salesModel
+    }
+
+    fun getSystemTags(): String {
+        return SystemPropertyInternal.get("ro.seewo.tags", "")
     }
 }
