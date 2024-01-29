@@ -70,6 +70,13 @@ object SSDeviceUtils {
     }
 
     /**
+     * T2 系列
+     */
+    fun isT2Series(): Boolean {
+        return Build.MODEL.startsWith(prefix = "XPT21", ignoreCase = true)
+    }
+
+    /**
      * Ace1 系列，包含 Ace1、Ace1Pro
      */
     fun isAce1Series(): Boolean {
