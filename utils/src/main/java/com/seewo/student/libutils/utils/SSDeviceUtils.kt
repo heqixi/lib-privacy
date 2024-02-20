@@ -108,4 +108,8 @@ object SSDeviceUtils {
     fun getSystemTags(): String {
         return SystemPropertyInternal.get("ro.seewo.tags", "")
     }
+
+    fun isDSFlavor(): Boolean {
+        return getSystemTags() == "ds"
+    }
 }
