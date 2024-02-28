@@ -112,4 +112,8 @@ object SSDeviceUtils {
     fun isDSFlavor(): Boolean {
         return getSystemTags() == "ds"
     }
+
+    fun isCMFlavor(): Boolean {
+        return getSystemTags() == "cm"
+    }
 }
