@@ -110,7 +110,8 @@ object SSDeviceUtils {
     }
 
     fun isDSFlavor(): Boolean {
-        return getSystemTags() == "ds"
+        val systemTags = getSystemTags()
+        return systemTags == "ds" || systemTags == "heb"
     }
 
     fun isCMFlavor(): Boolean {
