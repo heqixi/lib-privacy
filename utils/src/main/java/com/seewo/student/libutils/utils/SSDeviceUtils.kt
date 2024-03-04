@@ -117,4 +117,8 @@ object SSDeviceUtils {
     fun isCMFlavor(): Boolean {
         return getSystemTags() == "cm"
     }
+
+    fun isEllaFlavor(): Boolean {
+        return getSystemTags() == "yl"
+    }
 }
