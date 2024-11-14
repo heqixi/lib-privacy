@@ -1,15 +1,15 @@
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.artifactory'
 
-task androidJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
+//task androidJavadocs(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
 
-task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-    getArchiveClassifier().set('javadoc')
-    from androidJavadocs.destinationDir
-}
+//task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+//    getArchiveClassifier().set('javadoc')
+//    from androidJavadocs.destinationDir
+//}
 
 task androidSourcesJar(type: Jar) {
     getArchiveClassifier().set('sources')
@@ -26,18 +26,18 @@ publishing {
             artifactId POM_ARTIFACT_ID
             artifact "$buildDir/outputs/aar/${project.name}-release.aar"
             artifact androidSourcesJar
-            artifact androidJavadocsJar
+            //artifact androidJavadocsJar
         }
     }
 }
 
 artifactory {
-    contextUrl = "http://localhost:8082/artifactory/"
+    contextUrl = "http://43.139.163.217:8082/artifactory/"
     publish {
         repository {
             repoKey = Boolean.valueOf(System.getProperty("snapshot")) ? "SR_maven_snapshots_local" : "SR_maven_releases_local"
-            username = System.getProperty("username")
-            password = System.getProperty("password")
+            username = "admin"
+            password = "Hqg994821/"
         }
         defaults {
             publications('aar')
@@ -46,6 +46,6 @@ artifactory {
 }
 
 artifacts {
-    archives androidJavadocsJar
+//    archives androidJavadocsJar
     archives androidSourcesJar
 }
