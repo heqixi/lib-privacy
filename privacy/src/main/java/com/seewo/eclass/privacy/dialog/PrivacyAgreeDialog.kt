@@ -50,11 +50,24 @@ class PrivacyAgreeDialog(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(privacyRootView.root.apply {
-            addView(agreeBinding.root, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
-            addView(detailBinding.root, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+        setContentView(privacyRootView.root)
+        privacyRootView.rootView.apply {
+            addView(
+                agreeBinding.root,
+                ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
+            )
+            addView(
+                detailBinding.root,
+                ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
+            )
             detailBinding.root.isVisible = false
-        })
+        }
         setCancelable(false)
         setCanceledOnTouchOutside(false)
 

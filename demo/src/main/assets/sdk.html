@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)https://cstore-public-bak.seewo.com/momAdmin/uwixhjyohiwjjhjxhmlvizxkpqphihhh.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>清北同行AI伴学第三方SDK清单</title>
+            <style>
+                body {
+                    word-wrap: break-word;
+                    word-break: normal;
+                }
+            </style>
+        <style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color), 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color), 110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color), 120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+
+.immersive-translate-search-recomend {
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  font-size: 16px;
+}
+
+.immersive-translate-search-enhancement-en-title {
+  color: #4d5156;
+}
+
+/* dark */
+@media (prefers-color-scheme: dark) {
+  .immersive-translate-search-recomend {
+    border: 1px solid #3c4043;
+  }
+
+  .immersive-translate-close-action svg {
+    fill: #bdc1c6;
+  }
+
+  .immersive-translate-search-enhancement-en-title {
+    color: #bdc1c6;
+  }
+}
+
+
+.immersive-translate-search-settings {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.immersive-translate-search-recomend::before {
+  /* content: " "; */
+  /* width: 20px; */
+  /* height: 20px; */
+  /* top: 16px; */
+  /* position: absolute; */
+  /* background: center / contain url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAxlBMVEUAAADpTInqTIjpSofnSIfqS4nfS4XqS4nqTIjsTYnrTInqTIroS4jvQIDqTIn////+/v7rSYjpTIn8/v7uaZzrTIr9/f3wfansWJL88/b85e73qc39+/v3xNnylrvrVI/98fb62Obva5/8+fr76vH4y9zpSIj74e353Oj1ocTzm77xhK/veKbtYpjsXJTqU47oTInxjrXyh7L99fj40eH2ttH1udD3sc31ssz1rMnykLXucqPtbqD85e/1xdn2u9DzqcXrUY6FaJb8AAAADnRSTlMA34BgIM8Q37/fz7+/EGOHcVQAAAGhSURBVDjLhZPncuowEEZFTW7bXVU7xsYYTO/p7bb3f6lICIOYJOT4h7/VnFmvrBFjrF3/CR/SajBHswafctG0Qg3O8O0Xa8BZ6uw7eLjqr30SofCDVSkemMinfL1ecy20r5ygR5zz3ArcAqJExPTPKhDENEmS30Q9+yo4lEQkqVTiIEAHCT10xWERRdH0Bq0aCOPZNDV3s0xaYce1lHEoDHU8wEh3qRJypNcTAeKUIjgKMeGLDoRCLVLTVf+Ownj8Kk6H9HM6QXPgYjQSB0F00EJEu10ILQrs/QeP77BSSr0MzLOyuJJQbnUoOOIUI/A8EeJk9E4YUHUWiRyTVKGgQUB8/3e/NpdGlfI+FMQyWsCBWyz4A/ZyHXyiiz0Ne5aGZssoxRmcChw8/EFKQ5JwwkUo3FRT5yXS7q+Y/rHDZmFktzpGMvO+5QofA4FPpEmGw+EWRCFvnaof7Zhe8NuYSLR0xErKLThUSs8gnODh87ssy6438yzbLzxl012HS19vfCf3CNhnbWOL1eEsDda+gDPUvri8tSZzNFrwIZf1NmNvqC1I/t8j7nYAAAAASUVORK5CYII='); */
+}
+
+.immersive-translate-search-title {}
+
+.immersive-translate-search-title-wrapper {}
+
+.immersive-translate-search-time {
+  font-size: 12px;
+  margin: 4px 0 24px;
+  color: #70757a;
+}
+
+.immersive-translate-expand-items {
+  display: none;
+}
+
+.immersive-translate-search-more {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 270px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  word-break: break-all;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 16px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #EA4C89;
+  border: 1px solid #EA4C89
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #007bff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, .1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}</style></head>
+        <body>
+            <h2 style="margin-top: 5pt; margin-bottom: 5pt; text-align: center; font-family: 宋体; font-size: 18pt;" align="center"><span style="font-size: 16px;"><span style="font-size: 24px;"><strong>清北同行AI伴学与第三方共享个人信息清单</strong></span></span></h2>
+<p class="MsoNormal" style="margin: 0pt; text-align: justify; font-family: Calibri; font-size: 10.5pt; text-indent: 0pt; line-height: 21pt;" align="justify"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;">&nbsp;</span><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;"><span style="font-family: 宋体;">更新</span>/<span style="font-family: 宋体;">发布时间：</span></span><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;">2024</span><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;"><span style="font-family: 宋体;">年【</span>03<span style="font-family: 宋体;">】月【</span><span style="font-family: Times New Roman Regular;">13</span><span style="font-family: 宋体;">】日</span></span></span></p>
+<p class="MsoNormal" style="margin: 0pt; text-align: justify; font-family: Calibri; font-size: 10.5pt; text-indent: 0pt; line-height: 21pt;" align="justify"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;"><span style="font-family: 宋体;">生效时间：</span>2</span><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;">022</span><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;"><span style="font-family: 宋体;">年【</span>05<span style="font-family: 宋体;">】月【</span><span style="font-family: Times New Roman Regular;">05</span><span style="font-family: 宋体;">】日</span></span></span></p>
+<p class="MsoNormal" style="margin: 0pt; font-family: Calibri; font-size: 10.5pt; text-indent: 24pt; line-height: 21pt;"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;">&nbsp;</span></span></p>
+<p class="MsoNormal" style="margin: 0pt; font-family: Calibri; font-size: 10.5pt; text-indent: 24pt; line-height: 21pt;"><span style="font-size: 16px;"><strong><span style="font-family: 宋体; letter-spacing: 0pt;"><span style="font-family: 宋体;">一、第三方</span><span style="font-family: Times New Roman Regular;">/</span><span style="font-family: 宋体;">关联方</span></span></strong><strong><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;">SDK</span></strong><strong><span style="font-family: 宋体; letter-spacing: 0pt;">列表说明</span></strong></span></p>
+<p class="MsoNormal" style="margin: 0pt; font-family: Calibri; font-size: 10.5pt; text-indent: 24pt; line-height: 21pt;"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;"><span style="font-family: 宋体;">为保障相关功能的实现与应用的稳定运行，我们可能会接入由第三方</span></span><span style="font-family: 宋体; letter-spacing: 0pt;">或关联方</span><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;"><span style="font-family: 宋体;">提供的软件开发包（</span></span><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;">SDK</span><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;"><span style="font-family: 宋体;">）以实现相关目的。我们会对合作方获取信息的软件工具开发包（</span></span><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;">SDK</span><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;"><span style="font-family: 宋体;">）进行严格的安全监测，以保障数据安全。您可以通过以下链接查看第三方的数据使用和保护规则。</span></span></span></p>
+<p class="MsoNormal" style="margin: 0pt; font-family: Calibri; font-size: 10.5pt; text-indent: 21pt; line-height: 21pt;"><span style="font-size: 16px;"><strong><span style="font-family: 宋体; letter-spacing: 0pt;"><span style="font-family: Times New Roman Regular;">1.</span></span></strong><strong><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;"><span style="font-family: 宋体;">第三方</span>SDK<span style="font-family: 宋体;">列表</span></span></strong></span></p>
+<div align="center">
+<table class="MsoNormalTable" style="font-family: &#39;Times New Roman&#39;; font-size: 10pt; width: 422.75pt; border: none;" border="1" cellspacing="0">
+<tbody>
+<tr style="height: 50.45pt;">
+<td style="width: 58.8pt; padding: 4pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">第三方</span>SDK<span style="font-family: 宋体;">名称</span></span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">公司名称</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; text-indent: 0pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">收集信息的目的、方式</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; text-indent: 0pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">收集范围</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; text-indent: 0pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">获取权限</span></span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; text-indent: 0pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">第三方隐私政策链接</span></span></span></p>
+</td>
+</tr>
+<tr style="height: 108.25pt;">
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">腾讯</span>Bugly&nbsp;SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">深圳市腾讯计算机系统有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">为提升您使用产品的质量，了解应用崩溃信息和进行</span>OTA<span style="font-family: 宋体;">升级</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">日志信息、设备</span>ID<span style="font-family: 宋体;">（包括：</span><span style="font-family: Times New Roman Regular;">Android ID</span><span style="font-family: 宋体;">以及</span><span style="font-family: Times New Roman Regular;">IDFV</span><span style="font-family: 宋体;">）、以及国家码</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: 宋体; line-height: 21px; letter-spacing: 0pt;">无</span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://bugly.qq.com/v2/contract</span></span></p>
+</td>
+</tr>
+<tr style="height: 108.25pt;">
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">360&nbsp;<span style="font-family: 宋体;">坐姿检测服务</span><span style="font-family: Times New Roman Regular;">SDK</span></span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">奇酷软件（深圳）有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">基于</span>AI<span style="font-family: 宋体;">相机能力，智能监测坐姿，为您端正听课时的坐姿行为</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">收集面部信息及各种行为坐姿的类型及次数信息</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">存储权限</span></span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">http://en.mengyan.360os.com/policy/360OS_<span style="font-family: 宋体;">个人隐私保护政策</span><span style="font-family: Times New Roman Regular;">.htm</span></span></span></p>
+</td>
+</tr>
+<tr style="height: 201.65pt;">
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">思必驰</span>Dui<span style="font-family: 宋体;">语音技术</span></span></span></p>
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">思必驰科技股份有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">为向您提供智能语音语言技术服务，经您同意开启麦克风权限后，我们将收集您的需要转文字的语音信息或您提供的其他录音内容以用于上传到云端进行转文字处理和文件存储。</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">收集语音信息</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; text-indent: 0pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">外部存储写权限、录音权限、屏幕广播权限</span></span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://www.duiopen.com/docs/ct_privacyAgreement</span></span></p>
+</td>
+</tr>
+<tr style="height: 108.25pt;">
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">玩瞳绘本伴读</span>&nbsp;SDK<span style="font-family: 宋体;">（仅适用于部分机型）</span></span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">深圳市玩瞳科技有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">为实现绘本识别与朗读绘本</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">收集设备型号、设备</span>&nbsp;ID<span style="font-family: 宋体;">、绘本封面信息</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: 宋体; line-height: 21px; letter-spacing: 0pt;">无</span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://console.51wanxue.com/menu/userAgreement.do</span></span></p>
+</td>
+</tr>
+<tr style="height: 127.5pt;">
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">百度地图</span>SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">北京百度网讯科技有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">收集网络设备硬件地址，用于识别登录的地理位置、判断是否安全登录</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">Android ID<span style="font-family: 宋体;">、</span><span style="font-family: Times New Roman Regular;">IDFA</span><span style="font-family: 宋体;">、操作系统版本、设备品牌及型号、设备配置、应用信息（应用名）、</span><span style="font-family: Times New Roman Regular;">WiFi</span><span style="font-family: 宋体;">地址及信号强度信息、基站</span><span style="font-family: Times New Roman Regular;">ID</span><span style="font-family: 宋体;">数据信息、运营商信息、传感器信息、设备信号强度信息、</span><span style="font-family: Times New Roman Regular;">IP</span><span style="font-family: 宋体;">地址和蓝牙信息、</span><span style="font-family: Times New Roman Regular;">WiFi</span><span style="font-family: 宋体;">状态、</span><span style="font-family: Times New Roman Regular;">WiFi</span><span style="font-family: 宋体;">参数和</span><span style="font-family: Times New Roman Regular;">WiFi</span><span style="font-family: 宋体;">列表</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">网络访问</span></span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://lbsyun.baidu.com/index.php?title=openprivacy</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">驰声语音评测</span>SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">苏州驰声信息科技有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">相关中文</span>/<span style="font-family: 宋体;">英语跟读评测功能</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">终端系统类型、设备型号、设备</span>MAC<span style="font-family: 宋体;">地址，操作系统类型以及版本、硬件设备的序列号、跟读音频信息</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: 宋体; line-height: 21px;">读写权限</span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">http://doc.api.chivox.com/privacyPage/chivoxIndex.html</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">咿啦智云</span>SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">郑州点读电子科技有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">绘本馆的互动绘本阅读</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">无</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: 宋体; line-height: 21px; letter-spacing: 0pt;">无</span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://doc.ellabook.cn/#/policy_sdk</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">腾讯</span> TTS SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">深圳市腾讯计算机系统有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">将文本转化成拟人化语音的需求</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">文本信息（为实现</span> SDK <span style="font-family: 宋体;">的文字转语音基础功能，需要上传文本转为音频）</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">网络状态</span></span><span style="font-family: 宋体; line-height: 21px; letter-spacing: 0pt;">、</span><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">网络访问</span></span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://cloud.tencent.com/document/product/1073/72759</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">腾讯</span> ASR SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">深圳市腾讯计算机系统有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">将音频转化成文本的需求</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">用户说话音频（为实现</span> SDK <span style="font-family: 宋体;">的音频转文字基础功能，需要上传音频转为文本）</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">网络状态、网络访问</span></span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: justify; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="justify"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://cloud.tencent.com</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">腾讯</span>TRTC SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">深圳市腾讯计算机系统有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">音视频通话</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">Wi-Fi <span style="font-family: 宋体;">状态、系统属性、设备型号、操作系统、</span><span style="font-family: Times New Roman Regular;">IP </span><span style="font-family: 宋体;">地址、相机、录音、传感器信息</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: 宋体; line-height: 21px; letter-spacing: 0pt;">摄像头权限、录音权限</span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://cloud.tencent.com/document/product/647/97575</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">腾讯直播</span> SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">深圳市腾讯计算机系统有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">家长伴学</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">Wi-Fi <span style="font-family: 宋体;">状态、系统属性、设备型号、操作系统、</span><span style="font-family: Times New Roman Regular;">IP </span><span style="font-family: 宋体;">地址、相机、录音、传感器信息</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">摄像头权限、录音权限</span></span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://cloud.tencent.com/document/product/454/97574</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; text-indent: 0pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">图灵语音助手</span>SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">北京光年无限科技有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">语言助手</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">设备</span>ID<span style="font-family: 宋体;">，用户录音数据，用户语音指令</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">外部存储写权限、录音权限、屏幕广播权限</span></span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">http://biz.turingos.cn/login</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">图灵语音服务</span>SDK</span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">北京光年无限科技有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">设备注册激活资源</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">设备</span>ID</span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">外部存储写权限、录音权限、屏幕广播权限</span></span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">http://biz.turingos.cn/login</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width: 58.8pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 6pt 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; text-indent: 0pt; line-height: 21pt;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">先声语音评测</span></span></span></p>
+</td>
+<td style="width: 66.8pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="66">
+<p class="MsoNormal" style="margin: 6pt 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21pt;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">北京先声智能科技有限公司</span></span></span></p>
+</td>
+<td style="width: 65.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 6pt 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21pt;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">拼音评测</span></span></span></p>
+</td>
+<td style="width: 88.2pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 5pt 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 20pt;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">终端的系统类型、操作系统版本、</span>CPU<span style="font-family: 宋体;">架构、手机型号</span></span></span></p>
+</td>
+<td style="width: 70.15pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 5pt 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 20pt;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">读写存储</span></span></span></p>
+</td>
+<td style="width: 72.9pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="72">
+<p class="p" style="margin: 0pt; font-family: Calibri; font-size: 12pt; text-indent: 0pt; line-height: 20pt;"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">http://www.singsound.com/privacy_h5.html</span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="MsoNormal" style="margin: 0pt; text-align: justify; font-family: Calibri; font-size: 10.5pt; text-indent: 0pt; line-height: 21pt;" align="justify"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;">&nbsp;</span></span></p>
+<p class="MsoNormal" style="margin: 0pt; font-family: Calibri; font-size: 10.5pt; text-indent: 21pt; line-height: 21pt;"><span style="font-size: 16px;"><strong><span style="font-family: 宋体; letter-spacing: 0pt;"><span style="font-family: Times New Roman Regular;">2.</span></span></strong><strong><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt;"><span style="font-family: 宋体;">关联方</span>SDK<span style="font-family: 宋体;">列表</span></span></strong></span></p>
+<div align="center">
+<table class="MsoNormalTable" style="font-family: &#39;Times New Roman&#39;; font-size: 10pt; width: 439.25pt; border: none;" border="1" cellspacing="0">
+<tbody>
+<tr style="height: 50.45pt;">
+<td style="width: 58.35pt; padding: 4pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">关联方</span>SDK<span style="font-family: 宋体;">名称</span></span></span></p>
+</td>
+<td style="width: 67.35pt; padding: 0pt 0.5pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="67">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">公司名称</span></span></span></p>
+</td>
+<td style="width: 65.5pt; padding: 4pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; text-indent: 0pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">收集信息的目的、方式</span></span></span></p>
+</td>
+<td style="width: 88.65pt; padding: 4pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; text-indent: 0pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">收集范围</span></span></span></p>
+</td>
+<td style="width: 70.85pt; padding: 4pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; text-indent: 0pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">获取权限</span></span></span></p>
+</td>
+<td style="width: 88.55pt; padding: 4pt; border-width: 1pt; border-color: windowtext; background: #bebebe;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; text-indent: 0pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">第三方隐私</span>/<span style="font-family: 宋体;">官网政策链接</span></span></span></p>
+</td>
+</tr>
+<tr style="height: 108.25pt;">
+<td style="width: 58.35pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">视源</span>Friday SDK</span></span></p>
+</td>
+<td style="width: 67.35pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="67">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">广州视源电子科技股份有限公司</span></span></span></p>
+</td>
+<td style="width: 65.5pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">为实现对用户使用软件的行为进行分析</span></span></span></p>
+</td>
+<td style="width: 88.65pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">收集您的设备信息，包括</span>Android ID<span style="font-family: 宋体;">，</span><span style="font-family: Times New Roman Regular;">MAC</span><span style="font-family: 宋体;">地址，设备型号，软件版本，操作系统，操作系统版本号，设备分辨率，学科，学段，激活时间、用户</span><span style="font-family: Times New Roman Regular;">&nbsp;ID</span><span style="font-family: 宋体;">、整机</span><span style="font-family: Times New Roman Regular;">SN</span><span style="font-family: 宋体;">、板卡</span><span style="font-family: Times New Roman Regular;">SN</span></span></span></p>
+</td>
+<td style="width: 70.85pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">外部存储写权限、读取设备状态和身份权限</span></span></span></p>
+</td>
+<td style="width: 88.55pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://cstore-public-bak.seewo.com/momAdmin/338e871e066c46318214e97a46c036e0.html</span></span></p>
+</td>
+</tr>
+<tr style="height: 23.9pt;">
+<td style="width: 58.35pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">seewoApm SDK</span></span></p>
+</td>
+<td style="width: 67.35pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="67">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">广州视睿电子科技有限公司</span></span></span></p>
+</td>
+<td style="width: 65.5pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">应用性能数据、崩溃数据的统计分析</span></span></span></p>
+</td>
+<td style="width: 88.65pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">APP<span style="font-family: 宋体;">日志、</span><span style="font-family: Times New Roman Regular;">APP</span><span style="font-family: 宋体;">性能数据、</span><span style="font-family: Times New Roman Regular;">APP</span><span style="font-family: 宋体;">崩溃数据、设备厂商信息、设备信号、操作系统版本、操作系统名称、用户</span><span style="font-family: Times New Roman Regular;">ID</span><span style="font-family: 宋体;">、</span><span style="font-family: Times New Roman Regular;">APP</span><span style="font-family: 宋体;">版本、国家码、网络类型、设备内存容量、设备存储容量、设备屏幕信息、设备所处时区</span></span></span></p>
+</td>
+<td style="width: 70.85pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: 宋体; line-height: 21px; letter-spacing: 0pt;">无</span></span></p>
+</td>
+<td style="width: 88.55pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><u><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://account.seewo.com/seewo-account/agreement?appCode=study-station-android&amp;type=0&amp;index=61</span></u></span></p>
+</td>
+</tr>
+<tr style="height: 87.55pt;">
+<td style="width: 58.35pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">指尖查词</span> SDK</span></span></p>
+</td>
+<td style="width: 67.35pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="67">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: 宋体;">广州视源人工智能创新研究院有限公司</span></span></p>
+</td>
+<td style="width: 65.5pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">实现指尖查词的指尖识别功能</span></span></span></p>
+</td>
+<td style="width: 88.65pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">面向桌面的摄像头采集的图片，用户查词的结果</span></span></span></p>
+</td>
+<td style="width: 70.85pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">无</span></span></span></p>
+</td>
+<td style="width: 88.55pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: justify; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="justify"><span style="font-size: 16px;"><u><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://research.cvte.com/</span></u></span></p>
+</td>
+</tr>
+<tr style="height: 94.75pt;">
+<td style="width: 58.35pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">手写识别</span>SDK</span></span></p>
+</td>
+<td style="width: 67.35pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="67">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: 宋体;">广州视源人工智能创新研究院有限公司</span></span></p>
+</td>
+<td style="width: 65.5pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">在书写模块，将手写笔迹识别为对应文本</span></span></span></p>
+</td>
+<td style="width: 88.65pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: justify; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="justify"><span style="font-size: 16px;"><span style="font-family: 宋体; line-height: 21px; letter-spacing: 0pt;">书写字迹</span></span></p>
+</td>
+<td style="width: 70.85pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">无</span></span></span></p>
+</td>
+<td style="width: 88.55pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://research.cvte.com/</span></span></p>
+</td>
+</tr>
+<tr style="height: 108.25pt;">
+<td style="width: 58.35pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="58">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">自研坐姿检测</span>SDK</span></span></p>
+</td>
+<td style="width: 67.35pt; padding: 0pt 0.5pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="67">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: 宋体;">广州视源人工智能创新研究院有限公司</span></span></p>
+</td>
+<td style="width: 65.5pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="65">
+<p class="MsoNormal" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 10.5pt; line-height: 21px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">网课助手</span></span></span></p>
+</td>
+<td style="width: 88.65pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">设备型号、设备存储、应用版本、</span>SDK<span style="font-family: 宋体;">版本</span></span></span></p>
+</td>
+<td style="width: 70.85pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="70">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;"><span style="font-family: 宋体;">悬浮窗权限、摄像头权限</span></span></span></p>
+</td>
+<td style="width: 88.55pt; padding: 4pt; border-left-width: 1pt; border-left-color: windowtext; border-right-width: 1pt; border-right-color: windowtext; border-top: none; border-bottom-width: 1pt; border-bottom-color: windowtext;" valign="center" width="88">
+<p class="p" style="margin: 0pt; text-align: center; font-family: Calibri; font-size: 12pt; line-height: 24px;" align="center"><span style="font-size: 16px;"><span style="font-family: &#39;Times New Roman Regular&#39;; line-height: 21px; letter-spacing: 0pt;">https://research.cvte.com/</span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="MsoNormal" style="margin: 0pt; text-align: justify; font-family: Calibri; font-size: 10.5pt; text-indent: 0pt;" align="justify"><span style="font-family: &#39;Times New Roman Regular&#39;; letter-spacing: 0pt; font-size: 16px;">&nbsp;</span></p>
+        
+        </body></html>

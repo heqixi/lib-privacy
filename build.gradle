@@ -29,7 +29,7 @@ allprojects {
     }
 }
 
-tasks.getByPath(":privacy:androidJavadocs").enabled = false
+//tasks.getByPath(":privacy:androidJavadocs").enabled = false
 
 task clean(type: Delete) {
     delete rootProject.buildDir
