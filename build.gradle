@@ -7,9 +7,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath "com.android.tools.build:gradle:4.0.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.17.1"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:5.2.5"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -20,16 +20,16 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://artifactory.gz.cvte.cn/artifactory/SR_maven_releases_local/'
-        }
-        maven {
-            url 'https://artifactory.gz.cvte.cn/artifactory/SR_maven_snapshots_local/'
-        }
+//        maven {
+//            url 'https://artifactory.gz.cvte.cn/artifactory/SR_maven_releases_local/'
+//        }
+//        maven {
+//            url 'https://artifactory.gz.cvte.cn/artifactory/SR_maven_snapshots_local/'
+//        }
     }
 }
 
-tasks.getByPath(":utils:androidJavadocs").enabled = false
+tasks.getByPath(":privacy:androidJavadocs").enabled = false
 
 task clean(type: Delete) {
     delete rootProject.buildDir

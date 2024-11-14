@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="common_switch_track_checked_bg">#FF5BCF95</color>
+    <color name="common_switch_track_normal_bg">#E1E2E6</color>
+    <color name="privacy_black_60">#99000000</color>
+    <color name="privacy_black_7">#12000000</color>
+    <color name="privacy_black_80">#CC000000</color>
+    <color name="privacy_gray_f8">#F8F8F8</color>
+    <color name="privacy_primary">#8F8FFF</color>
+    <color name="privacy_white_20">#33FFFFFF</color>
+    <dimen name="ss_bg_radius">24dp</dimen>
+    <string name="privacy_agree">同意</string>
+    <string name="privacy_agree_point">请先阅读并同意隐私政策</string>
+    <string name="privacy_cancel">同意</string>
+    <string name="privacy_confirm">确定</string>
+    <string name="privacy_desc">视睿重视对未成年人（尤其是不满十四周岁的未成年人）的保护。考虑到您可能是不满十四周岁的未成年人，请您在使用“希沃学习机”产品及服务前，将本协议提供给您的父母或者法定监护人（“家长”）。如果您想使用“希沃学习机”产品及服务，请务必向我们提供您家长的联系方式（比如手机号码），以便我们联系您的家长以确保您家长已经阅读本协议并同意您使用“希沃学习机”产品及服务。在家长没有同意本协议的情况下，请您不要使用“希沃学习机”产品及服务。如果您家长对于本协议以及您使用“希沃学习机”产品及服务有任何的问题，可通过本协议末端的信息与我们取得联系。您通过网络页面点击注册、同意和/或实际使用希沃学习机的行为即视为已阅读、理解并同意接受本协议。如果您对本协议有任何的疑问、投诉、意见和建议，欢迎您通过本协议及本软件中所附联系方式与我们沟通反馈，我们十分乐意为您进行解答。作为学生家长，如果您同意本协议以及您孩子使用“希沃学习机”产品及服务，请您指导和监督您孩子在本协议允许的范围内使用“希沃学习机”产品及服务。</string>
+    <string name="privacy_detail_point">%s隐私协议</string>
+    <string name="privacy_detail_title">希沃学习机应用服务与隐私协议</string>
+    <string name="privacy_disagree">不同意</string>
+    <string name="privacy_read_and_agree">我已阅读并同意</string>
+    <string name="privacy_revoke">撤销授权</string>
+    <string name="privacy_sdk_list_title">第三方SDK列表</string>
+    <string name="privacy_share_list_title">个人信息共享清单</string>
+    <string name="privacy_welcome_app">欢迎使用%s</string>
+    <style name="BaseDialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="PrivacyAppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorAccent">@color/privacy_primary</item>
+        <item name="android:colorControlHighlight">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/privacy_gray_f8</item>
+        <item name="android:colorControlActivated">@color/privacy_primary</item>
+    </style>
+    <style name="PrivacyDialogStyle" parent="@style/BaseDialog">
+        <item name="android:windowNoTitle">true</item>
+        <!--dialog遮罩透明度-->
+        <item name="android:backgroundDimAmount">0.6</item>
+        <!--是否需要dialog遮罩-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="PrivacySwitchStyle">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:thumb">@drawable/privacy_switch_thumb</item>
+        <item name="android:background">@null</item>
+        <item name="switchMinWidth">32dp</item>
+    </style>
+</resources>

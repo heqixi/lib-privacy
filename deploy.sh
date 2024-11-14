@@ -1,3 +1,3 @@
 #!/bin/bash
 
-./gradlew -p utils clean artifactoryPublish -Dusername=sr_deployer -Dpassword=SRdeploy@2018 -Dsnapshot=false || { exit 1 ; }
+./gradlew -p privacy clean artifactoryPublish -Dusername=admin -Dpassword=Hqg994821/ -Dsnapshot=false || { exit 1 ; }

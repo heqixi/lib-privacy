@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="800dp"
+    android:layout_height="584dp"
+    android:background="@drawable/privacy_dialog_privacy_bg"
+    android:minWidth="800dp"
+    android:minHeight="584dp">
+
+    <com.seewo.eclass.privacy.view.SimpleAppIconView
+        android:id="@+id/privacyIconView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="48dp"
+        android:layerType="software"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/privacyTitleView"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="@color/privacy_black_80"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/privacyIconView" />
+
+    <TextView
+        android:id="@+id/privacyMessageView"
+        android:layout_width="672dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="4dp"
+        android:lineSpacingMultiplier="1.1"
+        android:scrollbars="vertical"
+        android:maxWidth="280dp"
+        android:text="@string/privacy_desc"
+        android:textColor="@color/privacy_black_60"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/privacyTitleView"
+        app:layout_constraintBottom_toTopOf="@+id/privacyAgreeCheckBox"
+        android:layout_marginBottom="24dp"/>
+
+    <CheckBox
+        android:id="@+id/privacyAgreeCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@id/privacyMessageView"
+        app:layout_constraintBottom_toTopOf="@id/privacyPermissionLayout" />
+
+    <TextView
+        android:id="@+id/privacyPointTitleView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:includeFontPadding="false"
+        android:text="@string/privacy_read_and_agree"
+        android:textColor="@color/privacy_black_80"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/privacyAgreeCheckBox"
+        app:layout_constraintStart_toEndOf="@id/privacyAgreeCheckBox"
+        app:layout_constraintTop_toTopOf="@id/privacyAgreeCheckBox" />
+
+    <TextView
+        android:id="@+id/privacyPointDetailView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:includeFontPadding="false"
+        android:textColor="@color/privacy_primary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/privacyAgreeCheckBox"
+        app:layout_constraintStart_toEndOf="@id/privacyPointTitleView"
+        app:layout_constraintTop_toTopOf="@id/privacyAgreeCheckBox" />
+
+    <com.seewo.eclass.privacy.view.PermissionGroupView
+        android:id="@+id/privacyPermissionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        android:layout_marginStart="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/privacyDisagreeButton"/>
+
+    <TextView
+        android:id="@+id/privacyDisagreeButton"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/privacy_line_white_button_bg"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/privacy_disagree"
+        android:textColor="@color/privacy_black_80"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/privacyAgreeButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/privacyAgreeButton"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/privacy_agree"
+        android:textColor="@android:color/white"
+        android:background="@color/privacy_primary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/privacyDisagreeButton"
+        app:layout_constraintTop_toTopOf="@id/privacyDisagreeButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
